@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Player.h"
 
 class Game
 {
@@ -43,7 +44,15 @@ private:
 	/********************************/
 	/*  User Variables              */
 
-	Color c = Colors::Blue;
+	int squareX = 100;
+	int squareY = 100;
 
+	int x1 = 200;
+	int y1 = 200;
+
+	Player player;
+
+	Color c = Colors::Blue;
+	
 	/********************************/
 };

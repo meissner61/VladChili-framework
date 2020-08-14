@@ -326,7 +326,6 @@ void Graphics::DrawRect(int start_x, int start_y,int width,int height, Color c)
 			PutPixel(current_x, current_y, c);
 		}
 	}
-
 }
 
 void Graphics::DrawCircle(int center_x, int center_y, int radius, Color c)
@@ -337,18 +336,29 @@ void Graphics::DrawCircle(int center_x, int center_y, int radius, Color c)
 	{
 		for (int current_x = (center_x - radius); current_x <= (center_x + radius); current_x++)
 		{
-			hypotenous = sqrt((center_x - current_x)*(center_x - current_x) + (center_y - current_y)*(center_y - current_y));
+			hypotenous = int(sqrt((center_x - current_x)*(center_x - current_x) + (center_y - current_y)*(center_y - current_y)));
 
 			if (hypotenous <= radius)
 			{
 				PutPixel(current_x, current_y, c);
 			}
+			
+		}
+	}
+}
 
+void Graphics::DrawRectPoint(int x0, int y0, int x1, int y1, Color c)
+{
+	for (int y = y0; y <= y1; y++)
+	{
+		for (int x = x0; x <= x1; x++)
+		{
 
+			PutPixel(x, y, c);
 		}
 
-
 	}
+
 }
 
 

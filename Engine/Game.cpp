@@ -25,6 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd )
+	//player1(10.0f,10.0f,c)
 {
 }
 
@@ -38,12 +39,46 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		player.x -= player.speed;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	{
+		player.x += player.speed;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		player.y -= player.speed;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		player.y += player.speed;
+	}
+
+	if (wnd.mouse.LeftIsPressed())
+	{
+		x1 = wnd.mouse.GetPosX();
+		y1 = wnd.mouse.GetPosY();
+
+	}
+
+	player.ClampToScreen();
+
 }
 
 void Game::ComposeFrame()
 {
-	//gfx.DrawRect(50, 50, 50, 50, c);
 
-	gfx.DrawCircle(300, 300, 10, c);
+	//Color c2(255, 255, 255);
+
+	player.Draw(gfx,c);
+
+	gfx.DrawRectPoint(squareX, squareY, x1, y1, c);
+
+
 
 }
