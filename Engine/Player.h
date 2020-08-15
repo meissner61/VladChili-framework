@@ -6,7 +6,7 @@ class Player
 public:
 	/*Player(float x, float y, Color color);*/
 	void ClampToScreen();
-	void Draw(Graphics& gfx, Color color);
+	void Draw(Graphics& gfx, Color color) const;
 	void Update();
 	
 
