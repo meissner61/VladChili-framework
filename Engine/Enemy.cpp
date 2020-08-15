@@ -1,6 +1,14 @@
 #include "Enemy.h"
 
-Enemy::Enemy(int x_in, int y_in, int vx_in, int vy_in)
+//Enemy::Enemy(int x_in, int y_in, int vx_in, int vy_in)
+//{
+//	x = x_in;
+//	y = y_in;
+//	vx = vx_in;
+//	vy = vy_in;
+//}
+
+void Enemy::Init(int x_in, int y_in, int vx_in, int vy_in)
 {
 	x = x_in;
 	y = y_in;
@@ -59,7 +67,7 @@ void Enemy::IsColliding(Player & player)
 
 }
 
-bool Enemy::IsEaten()
+bool Enemy::IsEaten() const
 {
 	return isEaten;
 }

@@ -28,9 +28,15 @@ Game::Game( MainWindow& wnd )
 	rng( rd() ),
 	xDist(0, 770),
 	yDist(0, 570),
-	enemy1( xDist(rng) , yDist(rng) ,1 ,1 )
+	vDist(-1, 1)
 	//player1(10.0f,10.0f,c)
 {
+	//enemy1.Init(200, 300, 1, 1);
+
+	for (int i = 0; i < nEnemy; i++)
+	{
+		enemies[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
+	}
 }
 
 void Game::Go()
@@ -43,16 +49,21 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	
-
 	//if (wnd.mouse.LeftIsPressed())
 
 
 	//Clamp to screen needs to be called after Update
 	player.Update(wnd.kbd);
 	player.ClampToScreen();
-	enemy1.Update();
-	enemy1.IsColliding(player);
+
+	for (int i = 0; i < nEnemy; i++)
+	{
+		enemies[i].Update();
+		enemies[i].IsColliding(player);
+	}
+
+	//enemy1.Update();
+	//enemy1.IsColliding(player);
 
 }
 
@@ -61,12 +72,21 @@ void Game::ComposeFrame()
 
 	//Color c2(255, 255, 255);
 
-	if (enemy1.IsEaten() == false)
+
+
+	for (int i = 0; i < nEnemy; i++)
 	{
-		enemy1.Draw(gfx);
+		if (!enemies[i].IsEaten())
+		{
+			enemies[i].Draw(gfx);
+		}
+		
 	}
-
-
+	//if (!enemy1.IsEaten())
+	//{
+	//	enemy1.Draw(gfx);
+	//}
+	
 
 	player.Draw(gfx);
 }

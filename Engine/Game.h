@@ -50,10 +50,12 @@ private:
 	std::random_device rd;
 	std::uniform_int_distribution<int> xDist;
 	std::uniform_int_distribution<int> yDist;
-	
-
+	std::uniform_int_distribution<int> vDist;
 	Player player;
-	Enemy enemy1;
+	static constexpr int nEnemy = 1000;
+	Enemy enemies[nEnemy];
+	//Enemy enemy1;
+
 
 	Color c = Colors::Blue;
 	

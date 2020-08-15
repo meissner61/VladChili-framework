@@ -5,11 +5,13 @@
 class Enemy
 {
 public:
-	Enemy(int x_in, int y_in, int vx_in, int vy_in);
+	//Enemy(int x_in, int y_in, int vx_in, int vy_in);
+	void Init(int x_in, int y_in, int vx_in, int vy_in);
 	void Draw(Graphics& gfx) const;
 	void Update();
 	void IsColliding(Player& player);
-	bool IsEaten();
+	bool IsEaten()const;
+
 
 private:
 
