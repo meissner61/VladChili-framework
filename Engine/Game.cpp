@@ -77,7 +77,7 @@ void Game::ComposeFrame()
 
 	player.Draw(gfx,c);
 
-	gfx.DrawRectPoint(squareX, squareY, x1, y1, c);
+	gfx.DrawRect(squareX, squareY, x1, y1, c);
 
 
 
