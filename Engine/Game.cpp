@@ -24,19 +24,17 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	rng( rd() ),
+	xDist(0, 770),
+	yDist(0, 570),
+	enemy1( xDist(rng) , yDist(rng) ,1 ,1 )
 	//player1(10.0f,10.0f,c)
 {
-	std::random_device rd;
-	std::mt19937 rng(rd());
-	std::uniform_int_distribution<int> xDist(0, 770);
-	std::uniform_int_distribution<int> yDist(0, 570);
+	
 
 
-	enemy1.vx = 1;
-	enemy1.vy = 1;
-	enemy1.x = xDist(rng);
-	enemy1.y = yDist(rng);
+
 }
 
 void Game::Go()
@@ -83,7 +81,7 @@ void Game::ComposeFrame()
 
 	//Color c2(255, 255, 255);
 
-	if (enemy1.isEaten == false)
+	if (enemy1.IsEaten() == false)
 	{
 		enemy1.Draw(gfx);
 	}

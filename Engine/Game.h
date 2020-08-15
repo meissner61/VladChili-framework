@@ -46,6 +46,11 @@ private:
 	/********************************/
 	/*  User Variables              */
 	
+	std::mt19937 rng;
+	std::random_device rd;
+	std::uniform_int_distribution<int> xDist;
+	std::uniform_int_distribution<int> yDist;
+	
 
 	Player player;
 	Enemy enemy1;
