@@ -17,6 +17,7 @@ private:
 	int x;
 	int y;
 	bool pickedUp = false;
+	int timesCaught = 0;
 
 public:
 	static constexpr int width = 20;

@@ -31,11 +31,16 @@ bool Goal::IsColliding(Player& player)
 
 void Goal::DrawTest(Graphics & gfx)
 {
+	gfx.DrawRect(10, 10, width*timesCaught, 10, Colors::Cyan);
+
 	gfx.DrawRect(x, y, width, height, Colors::Blue);
+
 }
 
 void Goal::Update(int x_in, int y_in)
 {
 	x = x_in;
 	y = y_in;
+
+	timesCaught++;
 }
