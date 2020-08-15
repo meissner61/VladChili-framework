@@ -27,6 +27,16 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd )
 	//player1(10.0f,10.0f,c)
 {
+	std::random_device rd;
+	std::mt19937 rng(rd());
+	std::uniform_int_distribution<int> xDist(0, 770);
+	std::uniform_int_distribution<int> yDist(0, 570);
+
+
+	enemy1.vx = 1;
+	enemy1.vy = 1;
+	enemy1.x = xDist(rng);
+	enemy1.y = yDist(rng);
 }
 
 void Game::Go()
@@ -59,14 +69,12 @@ void Game::UpdateModel()
 		player.y += player.speed;
 	}
 
-	if (wnd.mouse.LeftIsPressed())
-	{
-		x1 = wnd.mouse.GetPosX();
-		y1 = wnd.mouse.GetPosY();
+	//if (wnd.mouse.LeftIsPressed())
 
-	}
 
 	player.ClampToScreen();
+	enemy1.Update();
+	enemy1.IsColliding(player);
 
 }
 
@@ -75,10 +83,12 @@ void Game::ComposeFrame()
 
 	//Color c2(255, 255, 255);
 
-	player.Draw(gfx,c);
+	if (enemy1.isEaten == false)
+	{
+		enemy1.Draw(gfx);
+	}
 
-	gfx.DrawRect(squareX, squareY, x1, y1, c);
 
 
-
+	player.Draw(gfx);
 }

@@ -24,6 +24,8 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Player.h"
+#include "Enemy.h"
+#include <random>
 
 class Game
 {
@@ -43,14 +45,10 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-
-	int squareX = 100;
-	int squareY = 100;
-
-	int x1 = 200;
-	int y1 = 200;
+	
 
 	Player player;
+	Enemy enemy1;
 
 	Color c = Colors::Blue;
 	

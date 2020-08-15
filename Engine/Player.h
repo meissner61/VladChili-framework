@@ -6,7 +6,7 @@ class Player
 public:
 	/*Player(float x, float y, Color color);*/
 	void ClampToScreen();
-	void Draw(Graphics& gfx, Color color) const;
+	void Draw(Graphics& gfx) const;
 	void Update();
 	
 
@@ -17,12 +17,12 @@ public:
 
 	float speed = 20.0f;
 
-	float x;
-	float y;
-	Color color;
+	int x;
+	int y;
+	//Color color;
 
-	static constexpr int width = 24;
-	static constexpr int height = 24;
+	static constexpr int width = 10;
+	static constexpr int height = 10;
 
 
 };

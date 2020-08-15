@@ -35,9 +35,9 @@ void Player::ClampToScreen()
 
 }
 
-void Player::Draw(Graphics & gfx, Color color) const
+void Player::Draw(Graphics & gfx) const
 {
-	gfx.DrawRect(x, y, width, height, color);
+	gfx.DrawRect(x, y, width, height, Colors::Green);
 }
 
 void Player::Update()
