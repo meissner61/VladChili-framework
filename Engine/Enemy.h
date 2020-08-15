@@ -9,7 +9,7 @@ public:
 	void Init(int x_in, int y_in, int vx_in, int vy_in);
 	void Draw(Graphics& gfx) const;
 	void Update();
-	bool IsColliding(Player& player);
+	bool IsColliding(Player& player)const;
 	bool IsEaten()const;
 
 

@@ -10,6 +10,7 @@ public:
 	bool IsColliding(Player& player);
 	void DrawTest(Graphics& gfx);
 	void Update(int x_in, int y_in);
+	//void UpdateColor();
 
 private:
 
@@ -18,6 +19,8 @@ private:
 	int y;
 	bool pickedUp = false;
 	int timesCaught = 0;
+	Color c{ 255, 255, 255 };
+	bool coloInreaseing = false;
 
 public:
 	static constexpr int width = 20;

@@ -9,7 +9,7 @@ Goal::Goal(Graphics& gfx, int x_in, int y_in)
 
 void Goal::Draw(Graphics & gfx, int x, int y)
 {
-	gfx.DrawRect(x, y, width, height,Colors::Blue);
+	gfx.DrawRect(x, y, width, height,c);
 }
 
 bool Goal::IsColliding(Player& player)
@@ -33,7 +33,7 @@ void Goal::DrawTest(Graphics & gfx)
 {
 	gfx.DrawRect(10, 10, width*timesCaught, 10, Colors::Cyan);
 
-	gfx.DrawRect(x, y, width, height, Colors::Blue);
+	gfx.DrawRect(x, y, width, height, c);
 
 }
 
@@ -44,3 +44,4 @@ void Goal::Update(int x_in, int y_in)
 
 	timesCaught++;
 }
+
