@@ -26,8 +26,8 @@ Game::Game( MainWindow& wnd )
 	wnd( wnd ),
 	gfx( wnd ),
 	rng( rd() ),
-	xDist(0, 770),
-	yDist(0, 570),
+	xDist(0, Graphics::ScreenWidth - Enemy::width),
+	yDist(0, Graphics::ScreenHeight - Enemy::height),
 	vDist(-1, 1)
 	//player1(10.0f,10.0f,c)
 {
@@ -59,8 +59,8 @@ void Game::UpdateModel()
 	for (int i = 0; i < nEnemy; i++)
 	{
 		enemies[i].Update();
-		enemies[i].IsColliding(player);
-		if (enemies[i].IsEaten())
+		
+		if (enemies[i].IsColliding(player))
 		{
 			player.isEaten = true;
 		}

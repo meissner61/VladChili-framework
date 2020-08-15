@@ -9,13 +9,13 @@ public:
 	void Init(int x_in, int y_in, int vx_in, int vy_in);
 	void Draw(Graphics& gfx) const;
 	void Update();
-	void IsColliding(Player& player);
+	bool IsColliding(Player& player);
 	bool IsEaten()const;
 
 
 private:
 
-	float speed = 5.0f;
+	float speed = 1.0f;
 	int x;
 	int y;
 	int vx;
@@ -24,6 +24,10 @@ private:
 	bool isEaten = false;
 
 	//Color color;
+
+	
+
+public:
 
 	static constexpr int width = 20;
 	static constexpr int height = 20;

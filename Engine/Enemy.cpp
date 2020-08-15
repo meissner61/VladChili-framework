@@ -51,7 +51,7 @@ void Enemy::Update()
 	}
 }
 
-void Enemy::IsColliding(Player & player) 
+bool Enemy::IsColliding(Player & player) 
 {
 	const int right = x + width;
 	const int bottom = y + height;
@@ -61,8 +61,11 @@ void Enemy::IsColliding(Player & player)
 
 	if (x <= player_right && right >= player.GetX() && y <= player_bottom && bottom >= player.GetY())
 	{
-		isEaten = true;
+		//isEaten = true;
+		return true;
 	}
+	else
+		return false;
 	
 
 }
