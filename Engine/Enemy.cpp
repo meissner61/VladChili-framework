@@ -43,15 +43,15 @@ void Enemy::Update()
 	}
 }
 
-void Enemy::IsColliding(Player & player)
+void Enemy::IsColliding(Player & player) 
 {
 	const int right = x + width;
 	const int bottom = y + height;
 
-	const int player_right = player.x + player.width;
-	const int player_bottom = player.y + player.height;
+	const int player_right = player.GetX() + player.GetWidth();
+	const int player_bottom = player.GetY() + player.GetHeight();
 
-	if (x <= player_right && right >= player.x && y <= player_bottom && bottom >= player.y)
+	if (x <= player_right && right >= player.GetX() && y <= player_bottom && bottom >= player.GetY())
 	{
 		isEaten = true;
 	}

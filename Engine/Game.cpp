@@ -31,10 +31,6 @@ Game::Game( MainWindow& wnd )
 	enemy1( xDist(rng) , yDist(rng) ,1 ,1 )
 	//player1(10.0f,10.0f,c)
 {
-	
-
-
-
 }
 
 void Game::Go()
@@ -47,29 +43,13 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	if (wnd.kbd.KeyIsPressed(VK_LEFT))
-	{
-		player.x -= player.speed;
-	}
-
-	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
-	{
-		player.x += player.speed;
-	}
-
-	if (wnd.kbd.KeyIsPressed(VK_UP))
-	{
-		player.y -= player.speed;
-	}
-
-	if (wnd.kbd.KeyIsPressed(VK_DOWN))
-	{
-		player.y += player.speed;
-	}
+	
 
 	//if (wnd.mouse.LeftIsPressed())
 
 
+	//Clamp to screen needs to be called after Update
+	player.Update(wnd.kbd);
 	player.ClampToScreen();
 	enemy1.Update();
 	enemy1.IsColliding(player);

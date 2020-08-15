@@ -40,8 +40,46 @@ void Player::Draw(Graphics & gfx) const
 	gfx.DrawRect(x, y, width, height, Colors::Green);
 }
 
-void Player::Update()
+void Player::Update(const Keyboard& kbd)
 {
+	if (kbd.KeyIsPressed(VK_LEFT))
+	{
+		x -= speed;
+	}
 
+	if (kbd.KeyIsPressed(VK_RIGHT))
+	{
+		x += speed;
+	}
 
+	if (kbd.KeyIsPressed(VK_UP))
+	{
+		y -= speed;
+	}
+
+	if (kbd.KeyIsPressed(VK_DOWN))
+	{
+		y += speed;
+	}
+
+}
+
+int Player::GetX()
+{
+	return x;
+}
+
+int Player::GetY()
+{
+	return y;
+}
+
+int Player::GetWidth()
+{
+	return width;
+}
+
+int Player::GetHeight()
+{
+	return height;
 }
