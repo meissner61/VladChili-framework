@@ -28,7 +28,8 @@ Game::Game( MainWindow& wnd )
 	rng( rd() ),
 	xDist(0, Graphics::ScreenWidth - Enemy::width),
 	yDist(0, Graphics::ScreenHeight - Enemy::height),
-	vDist(-1, 1)
+	vDist(-1, 1),
+	goal( gfx, 100 , 100)
 	//player1(10.0f,10.0f,c)
 {
 	//enemy1.Init(200, 300, 1, 1);
@@ -66,9 +67,12 @@ void Game::UpdateModel()
 		}
 
 	}
-
-	//enemy1.Update();
-	//enemy1.IsColliding(player);
+	
+	if (goal.IsColliding(player))
+	{
+		goal.Update(xDist(rng),yDist(rng));
+	}
+	
 
 }
 
@@ -95,5 +99,6 @@ void Game::ComposeFrame()
 		player.Draw(gfx);
 	}
 
-	
+	//goal.Draw(gfx, xDist(rng), yDist(rng)); //just looks funny because it goes nuts!
+	goal.DrawTest(gfx);
 }
