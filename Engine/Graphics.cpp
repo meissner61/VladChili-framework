@@ -317,16 +317,16 @@ void Graphics::PutPixel( int x,int y,Color c )
 	pSysBuffer[Graphics::ScreenWidth * y + x] = c;
 }
 
-void Graphics::DrawRect(int start_x, int start_y,int width,int height, Color c)
-{
-	for (int current_y = start_y; current_y < start_y + height; current_y++)
-	{
-		for (int current_x = start_x; current_x < start_x + width; current_x++)
-		{
-			PutPixel(current_x, current_y, c);
-		}
-	}
-}
+//void Graphics::DrawRect(int start_x, int start_y,int width,int height, Color c)
+//{
+//	for (int current_y = start_y; current_y < start_y + height; current_y++)
+//	{
+//		for (int current_x = start_x; current_x < start_x + width; current_x++)
+//		{
+//			PutPixel(current_x, current_y, c);
+//		}
+//	}
+//}
 
 void Graphics::DrawCircle(int center_x, int center_y, int radius, Color c)
 {
