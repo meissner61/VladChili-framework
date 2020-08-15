@@ -60,6 +60,11 @@ void Game::UpdateModel()
 	{
 		enemies[i].Update();
 		enemies[i].IsColliding(player);
+		if (enemies[i].IsEaten())
+		{
+			player.isEaten = true;
+		}
+
 	}
 
 	//enemy1.Update();
@@ -76,10 +81,8 @@ void Game::ComposeFrame()
 
 	for (int i = 0; i < nEnemy; i++)
 	{
-		if (!enemies[i].IsEaten())
-		{
-			enemies[i].Draw(gfx);
-		}
+
+		enemies[i].Draw(gfx);
 		
 	}
 	//if (!enemy1.IsEaten())
@@ -87,6 +90,10 @@ void Game::ComposeFrame()
 	//	enemy1.Draw(gfx);
 	//}
 	
+	if (!player.isEaten)
+	{
+		player.Draw(gfx);
+	}
 
-	player.Draw(gfx);
+	
 }

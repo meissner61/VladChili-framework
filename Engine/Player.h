@@ -13,7 +13,7 @@ public:
 	int GetY();
 	static int GetWidth();
 	static int GetHeight();
-	
+	bool isEaten = false;
 
 
 
@@ -22,8 +22,8 @@ private:
 
 	float speed = 10.0f;
 
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 	//Color color;
 
 	static constexpr int width = 20;

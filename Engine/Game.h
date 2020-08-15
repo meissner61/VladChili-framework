@@ -52,7 +52,7 @@ private:
 	std::uniform_int_distribution<int> yDist;
 	std::uniform_int_distribution<int> vDist;
 	Player player;
-	static constexpr int nEnemy = 1000;
+	static constexpr int nEnemy = 5;
 	Enemy enemies[nEnemy];
 	//Enemy enemy1;
 
