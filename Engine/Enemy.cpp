@@ -8,7 +8,7 @@
 //	vy = vy_in;
 //}
 
-void Enemy::Init(int x_in, int y_in, int vx_in, int vy_in)
+void Enemy::Init(float x_in, float y_in, float vx_in, float vy_in)
 {
 	x = x_in;
 	y = y_in;
@@ -32,9 +32,9 @@ void Enemy::Update()
 		vx *= (-1);
 	}
 
-	else if (x + width >= Graphics::ScreenWidth)
+	else if (x + width >= float(Graphics::ScreenWidth))
 	{
-		x = Graphics::ScreenWidth - width;
+		x = float(Graphics::ScreenWidth) - width;
 		vx *= (-1);
 	}
 
@@ -44,9 +44,9 @@ void Enemy::Update()
 		vy *= (-1);
 	}
 
-	else if (y + height >= Graphics::ScreenHeight)
+	else if (y + height >= float(Graphics::ScreenHeight))
 	{
-		y = Graphics::ScreenHeight - height; 
+		y = float(Graphics::ScreenHeight) - height; 
 		vy *= (-1);
 	}
 }

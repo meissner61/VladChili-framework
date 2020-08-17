@@ -6,7 +6,7 @@ class Enemy
 {
 public:
 	//Enemy(int x_in, int y_in, int vx_in, int vy_in);
-	void Init(int x_in, int y_in, int vx_in, int vy_in);
+	void Init(float x_in, float y_in, float vx_in, float vy_in);
 	void Draw(Graphics& gfx) const;
 	void Update();
 	bool IsColliding(Player& player)const;
@@ -15,11 +15,11 @@ public:
 
 private:
 
-	float speed = 1.0f;
-	int x;
-	int y;
-	int vx;
-	int vy;
+	float speed = 0.25f;
+	float x;
+	float y;
+	float vx;
+	float vy;
 
 	bool isEaten = false;
 
@@ -29,7 +29,7 @@ private:
 
 public:
 
-	static constexpr int width = 20;
-	static constexpr int height = 20;
+	static constexpr float width = 20;
+	static constexpr float height = 20;
 
 };

@@ -36,7 +36,7 @@ Game::Game( MainWindow& wnd )
 
 	for (int i = 0; i < nEnemy; i++)
 	{
-		enemies[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
+		enemies[i].Init(xDist(rng), yDist(rng), 0.5f, 0.5f);
 	}
 }
 
