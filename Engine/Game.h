@@ -49,9 +49,9 @@ private:
 	
 	std::mt19937 rng;
 	std::random_device rd;
-	std::uniform_int_distribution<int> xDist;
-	std::uniform_int_distribution<int> yDist;
-	std::uniform_int_distribution<int> vDist;
+	std::uniform_real_distribution<float> xDist;
+	std::uniform_real_distribution<float> yDist;
+	std::uniform_real_distribution<float> vDist;
 	Player player;
 	static constexpr int nEnemy = 5;
 	Enemy enemies[nEnemy];

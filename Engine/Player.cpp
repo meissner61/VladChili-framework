@@ -18,9 +18,9 @@ void Player::ClampToScreen()
 		x = 0;
 	}
 
-	else if (x+width >= Graphics::ScreenWidth)
+	else if (x+width >= float(Graphics::ScreenWidth))
 	{
-		x = Graphics::ScreenWidth - width;
+		x = float(Graphics::ScreenWidth) - width;
 	}
 
 	if (y <= 0)
@@ -28,16 +28,16 @@ void Player::ClampToScreen()
 		y = 0;
 	}
 
-	else if (y + height >= Graphics::ScreenHeight)
+	else if (y + height >= float(Graphics::ScreenHeight))
 	{
-		y = Graphics::ScreenHeight - height;
+		y = float(Graphics::ScreenHeight) - height;
 	}
 
 }
 
 void Player::Draw(Graphics & gfx) const
 {
-	gfx.DrawRect(x, y, width, height, Colors::Green);
+	gfx.DrawRect(int(x), int(y), int(width), int(height), Colors::Green);
 }
 
 void Player::Update(const Keyboard& kbd)
@@ -64,22 +64,22 @@ void Player::Update(const Keyboard& kbd)
 
 }
 
-int Player::GetX()
+float Player::GetX()const
 {
 	return x;
 }
 
-int Player::GetY()
+float Player::GetY()const
 {
 	return y;
 }
 
-int Player::GetWidth()
+float Player::GetWidth()const
 {
 	return width;
 }
 
-int Player::GetHeight()
+float Player::GetHeight()const
 {
 	return height;
 }

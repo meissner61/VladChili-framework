@@ -1,24 +1,24 @@
 #include "Goal.h"
 
-Goal::Goal(Graphics& gfx, int x_in, int y_in)
+Goal::Goal(Graphics& gfx, float x_in, float y_in)
 {
 	x = x_in;
 	y = y_in;
 	Draw( gfx,x,y);
 }
 
-void Goal::Draw(Graphics & gfx, int x, int y)
+void Goal::Draw(Graphics & gfx, float x, float y)
 {
-	gfx.DrawRect(x, y, width, height,c);
+	gfx.DrawRect(int(x), int(y), int(width), int(height),c);
 }
 
 bool Goal::IsColliding(Player& player)
 {
-	const int right = x + width;
-	const int bottom = y + height;
+	const float right = x + width;
+	const float bottom = y + height;
 
-	const int player_right = player.GetX() + player.GetWidth();
-	const int player_bottom = player.GetY() + player.GetHeight();
+	const float player_right = player.GetX() + player.GetWidth();
+	const float player_bottom = player.GetY() + player.GetHeight();
 
 	if (x <= player_right && right >= player.GetX() && y <= player_bottom && bottom >= player.GetY())
 	{
@@ -31,13 +31,13 @@ bool Goal::IsColliding(Player& player)
 
 void Goal::DrawTest(Graphics & gfx)
 {
-	gfx.DrawRect(10, 10, width*timesCaught, 10, Colors::Cyan);
+	gfx.DrawRect(10, 10, int(width)*timesCaught, 10, Colors::Cyan);
 
-	gfx.DrawRect(x, y, width, height, c);
+	gfx.DrawRect(int(x), int(y), int(width), int(height), c);
 
 }
 
-void Goal::Update(int x_in, int y_in)
+void Goal::Update(float x_in, float y_in)
 {
 	x = x_in;
 	y = y_in;

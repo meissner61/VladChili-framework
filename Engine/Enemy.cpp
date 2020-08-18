@@ -18,7 +18,7 @@ void Enemy::Init(float x_in, float y_in, float vx_in, float vy_in)
 
 void Enemy::Draw(Graphics & gfx) const
 {
-	gfx.DrawRect(x, y, width, height, Colors::Red);
+	gfx.DrawRect(int(x), int(y), int(width), int(height), Colors::Red);
 }
 
 void Enemy::Update()
@@ -53,11 +53,11 @@ void Enemy::Update()
 
 bool Enemy::IsColliding(Player & player)const 
 {
-	const int right = x + width;
-	const int bottom = y + height;
+	const float right = x + width;
+	const float bottom = y + height;
 
-	const int player_right = player.GetX() + player.GetWidth();
-	const int player_bottom = player.GetY() + player.GetHeight();
+	const float player_right = player.GetX() + player.GetWidth();
+	const float player_bottom = player.GetY() + player.GetHeight();
 
 	return (x <= player_right && right >= player.GetX() && y <= player_bottom && bottom >= player.GetY());
 

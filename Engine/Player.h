@@ -9,10 +9,10 @@ public:
 	void ClampToScreen();
 	void Draw(Graphics& gfx) const;
 	void Update(const Keyboard& kbd);
-	int GetX();
-	int GetY();
-	static int GetWidth();
-	static int GetHeight();
+	float GetX()const;
+	float GetY()const;
+	float GetWidth() const;
+	float GetHeight()const;
 	bool isEaten = false;
 
 
@@ -20,14 +20,14 @@ public:
 
 private:
 
-	float speed = 10.0f;
+	float speed = 5.0f;
 
-	int x = 0;
-	int y = 0;
+	float x = 0.0f;
+	float y = 0.0f;
 	//Color color;
 
-	static constexpr int width = 20;
-	static constexpr int height = 20;
+	static constexpr float width = 20.0f;
+	static constexpr float height = 20.0f;
 
 
 };
