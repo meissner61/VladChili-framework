@@ -51,9 +51,9 @@ private:
 	std::random_device rd;
 	std::uniform_real_distribution<float> xDist;
 	std::uniform_real_distribution<float> yDist;
-	std::uniform_real_distribution<float> vDist;
+	
 	Player player;
-	static constexpr int nEnemy = 5;
+	static constexpr int nEnemy = 10;
 	Enemy enemies[nEnemy];
 	Goal goal;
 	//Enemy enemy1;

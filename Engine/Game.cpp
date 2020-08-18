@@ -28,15 +28,15 @@ Game::Game( MainWindow& wnd )
 	rng( rd() ),
 	xDist(0, Graphics::ScreenWidth - Enemy::width),
 	yDist(0, Graphics::ScreenHeight - Enemy::height),
-	vDist(-1, 1),
 	goal( gfx, xDist(rng), yDist(rng))
 	//player1(10.0f,10.0f,c)
 {
+	std::uniform_real_distribution<float> vDist(-15.0f, 15.0f);
 	//enemy1.Init(200, 300, 1, 1);
 
 	for (int i = 0; i < nEnemy; i++)
 	{
-		enemies[i].Init(xDist(rng), yDist(rng), 0.5f, 0.5f);
+		enemies[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
 	}
 }
 
