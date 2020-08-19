@@ -50,6 +50,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	const float dt = ft.Mark();
 	//if (wnd.mouse.LeftIsPressed())
 
 

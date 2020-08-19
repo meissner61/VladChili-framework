@@ -27,6 +27,7 @@
 #include "Enemy.h"
 #include <random>
 #include "Goal.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -46,7 +47,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	
+	FrameTimer ft;
 	std::mt19937 rng;
 	std::random_device rd;
 	std::uniform_real_distribution<float> xDist;
