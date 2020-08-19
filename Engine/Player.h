@@ -8,7 +8,7 @@ public:
 	/*Player(float x, float y, Color color);*/
 	void ClampToScreen();
 	void Draw(Graphics& gfx) const;
-	void Update(const Keyboard& kbd);
+	void Update(const Keyboard& kbd,float dt);
 	float GetX()const;
 	float GetY()const;
 	float GetWidth() const;
@@ -20,7 +20,7 @@ public:
 
 private:
 
-	float speed = 5.0f;
+	float speed = 5.0f*60.0f;
 
 	float x = 0.0f;
 	float y = 0.0f;

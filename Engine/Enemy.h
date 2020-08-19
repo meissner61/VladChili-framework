@@ -8,7 +8,7 @@ public:
 	//Enemy(int x_in, int y_in, int vx_in, int vy_in);
 	void Init(float x_in, float y_in, float vx_in, float vy_in);
 	void Draw(Graphics& gfx) const;
-	void Update();
+	void Update(float dt);
 	bool IsColliding(Player& player)const;
 	bool IsEaten()const;
 

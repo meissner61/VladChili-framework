@@ -40,26 +40,26 @@ void Player::Draw(Graphics & gfx) const
 	gfx.DrawRect(int(x), int(y), int(width), int(height), Colors::Green);
 }
 
-void Player::Update(const Keyboard& kbd)
+void Player::Update(const Keyboard& kbd, float dt)
 {
 	if (kbd.KeyIsPressed(VK_LEFT))
 	{
-		x -= speed;
+		x -= speed * dt;	
 	}
 
 	if (kbd.KeyIsPressed(VK_RIGHT))
 	{
-		x += speed;
+		x += speed * dt;
 	}
 
 	if (kbd.KeyIsPressed(VK_UP))
 	{
-		y -= speed;
+		y -= speed * dt;
 	}
 
 	if (kbd.KeyIsPressed(VK_DOWN))
 	{
-		y += speed;
+		y += speed * dt;
 	}
 
 }

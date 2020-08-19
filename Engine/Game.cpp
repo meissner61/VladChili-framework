@@ -31,7 +31,7 @@ Game::Game( MainWindow& wnd )
 	goal( gfx, xDist(rng), yDist(rng))
 	//player1(10.0f,10.0f,c)
 {
-	std::uniform_real_distribution<float> vDist(-15.0f, 15.0f);
+	std::uniform_real_distribution<float> vDist(-15.0f*60.0f, 15.0f*60.0f);
 	//enemy1.Init(200, 300, 1, 1);
 
 	for (int i = 0; i < nEnemy; i++)
@@ -55,12 +55,12 @@ void Game::UpdateModel()
 
 
 	//Clamp to screen needs to be called after Update
-	player.Update(wnd.kbd);
+	player.Update(wnd.kbd,dt);
 	player.ClampToScreen();
 
 	for (int i = 0; i < nEnemy; i++)
 	{
-		enemies[i].Update();
+		enemies[i].Update(dt);
 		
 		if (enemies[i].IsColliding(player))
 		{

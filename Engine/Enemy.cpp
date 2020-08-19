@@ -21,10 +21,10 @@ void Enemy::Draw(Graphics & gfx) const
 	gfx.DrawRect(int(x), int(y), int(width), int(height), Colors::Red);
 }
 
-void Enemy::Update()
+void Enemy::Update(float dt)
 {
-	x += vx * speed;
-	y += vy * speed;
+	x += (vx * speed)*dt;
+	y += (vy * speed)*dt;
 
 	if (x <= 0)
 	{
