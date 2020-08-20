@@ -1,22 +1,22 @@
 #pragma once
 #include "Graphics.h"
 #include "Player.h"
+#include "Vec2.h"
 class Goal
 {
 
 public:
-	Goal(Graphics& gfx, float x, float y);
+	Goal(Graphics& gfx, const Vec2& position_in);
 	void Draw(Graphics & gfx, float x, float y);
 	bool IsColliding(Player& player);
 	void DrawTest(Graphics& gfx);
-	void Update(float x_in, float y_in);
+	void Update(Vec2& pos_in);
 	//void UpdateColor();
 
 private:
 
 
-	float x;
-	float y;
+	Vec2 position;
 	bool pickedUp = false;
 	int timesCaught = 0;
 	Color c{ 255, 255, 255 };

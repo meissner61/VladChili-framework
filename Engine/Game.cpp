@@ -28,7 +28,7 @@ Game::Game( MainWindow& wnd )
 	rng( rd() ),
 	xDist(0, Graphics::ScreenWidth - Enemy::width),
 	yDist(0, Graphics::ScreenHeight - Enemy::height),
-	goal( gfx, xDist(rng), yDist(rng))
+	goal( gfx, Vec2( xDist(rng), yDist(rng)) )
 	//player1(10.0f,10.0f,c)
 {
 
@@ -38,7 +38,7 @@ Game::Game( MainWindow& wnd )
 
 	for (int i = 0; i < nEnemy; i++)
 	{
-		enemies[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
+		enemies[i].Init( Vec2(xDist(rng), yDist(rng)) , Vec2(vDist(rng), vDist(rng)) );
 	}
 }
 
@@ -73,7 +73,7 @@ void Game::UpdateModel()
 	
 	if (goal.IsColliding(player))
 	{
-		goal.Update(xDist(rng),yDist(rng));
+		goal.Update( Vec2(xDist(rng),yDist(rng)) );
 	}
 
 	//goal.UpdateColor();

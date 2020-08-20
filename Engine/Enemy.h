@@ -1,12 +1,13 @@
 #pragma once
 #include "Graphics.h"
 #include "Player.h"
+#include "Vec2.h"
 
 class Enemy
 {
 public:
 	//Enemy(int x_in, int y_in, int vx_in, int vy_in);
-	void Init(float x_in, float y_in, float vx_in, float vy_in);
+	void Init(const Vec2 position_in, const Vec2 velocity_in);
 	void Draw(Graphics& gfx) const;
 	void Update(float dt);
 	bool IsColliding(Player& player)const;
@@ -16,10 +17,8 @@ public:
 private:
 
 	float speed = 0.25f;
-	float x;
-	float y;
-	float vx;
-	float vy;
+	Vec2 position;
+	Vec2 velocity;
 
 	bool isEaten = false;
 

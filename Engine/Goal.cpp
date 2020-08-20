@@ -1,26 +1,25 @@
 #include "Goal.h"
 
-Goal::Goal(Graphics& gfx, float x_in, float y_in)
+Goal::Goal(Graphics& gfx, const Vec2& pos_in)
 {
-	x = x_in;
-	y = y_in;
-	Draw( gfx,x,y);
+	position = pos_in;
+	Draw( gfx,position.x, position.y);
 }
 
 void Goal::Draw(Graphics & gfx, float x, float y)
 {
-	gfx.DrawRect(int(x), int(y), int(width), int(height),c);
+	gfx.DrawRect(int(position.x), int(position.y), int(width), int(height),c);
 }
 
 bool Goal::IsColliding(Player& player)
 {
-	const float right = x + width;
-	const float bottom = y + height;
+	const float right = position.x + width;
+	const float bottom = position.y + height;
 
-	const float player_right = player.GetX() + player.GetWidth();
-	const float player_bottom = player.GetY() + player.GetHeight();
+	const float player_right = player.GetPosition().x + player.GetWidth();
+	const float player_bottom = player.GetPosition().y + player.GetHeight();
 
-	if (x <= player_right && right >= player.GetX() && y <= player_bottom && bottom >= player.GetY())
+	if (position.x <= player_right && right >= player.GetPosition().x && position.y <= player_bottom && bottom >= player.GetPosition().y)
 	{
 		//isEaten = true;
 		return true;
@@ -33,14 +32,13 @@ void Goal::DrawTest(Graphics & gfx)
 {
 	gfx.DrawRect(10, 10, int(width)*timesCaught, 10, Colors::Cyan);
 
-	gfx.DrawRect(int(x), int(y), int(width), int(height), c);
+	gfx.DrawRect(int(position.x), int(position.y), int(width), int(height), c);
 
 }
 
-void Goal::Update(float x_in, float y_in)
+void Goal::Update(Vec2& pos_in)
 {
-	x = x_in;
-	y = y_in;
+	position = pos_in;
 
 	timesCaught++;
 }
