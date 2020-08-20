@@ -31,6 +31,8 @@ Game::Game( MainWindow& wnd )
 	goal( gfx, xDist(rng), yDist(rng))
 	//player1(10.0f,10.0f,c)
 {
+
+
 	std::uniform_real_distribution<float> vDist(-15.0f*60.0f, 15.0f*60.0f);
 	//enemy1.Init(200, 300, 1, 1);
 

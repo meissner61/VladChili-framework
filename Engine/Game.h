@@ -28,6 +28,7 @@
 #include <random>
 #include "Goal.h"
 #include "FrameTimer.h"
+#include "Vec2.h"
 
 class Game
 {
