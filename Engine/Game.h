@@ -56,7 +56,7 @@ private:
 	std::uniform_real_distribution<float> yDist;
 	
 	Player player;
-	static constexpr int nEnemy = 10;
+	static constexpr int nEnemy = 2;
 	Enemy enemies[nEnemy];
 	Goal goal;
 	//Enemy enemy1;

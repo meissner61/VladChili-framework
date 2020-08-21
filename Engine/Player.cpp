@@ -64,6 +64,21 @@ void Player::Update(const Keyboard& kbd, float dt)
 
 }
 
+void Player::MouseMove(const Mouse & mouse, float dt)
+{
+	Vec2 mousePos;
+	
+
+	if (mouse.LeftIsPressed())
+	{
+		mousePos = Vec2(mouse.GetPosX(), mouse.GetPosY());
+		moveVector = mousePos - position;
+		position += moveVector * dt * 2;
+	}
+
+	
+}
+
 Vec2 Player::GetPosition() const
 {
 	return position;

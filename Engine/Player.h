@@ -2,6 +2,7 @@
 #include "Graphics.h"
 #include "Keyboard.h"
 #include "Vec2.h"
+#include "Mouse.h"
 class Player
 {
 
@@ -10,6 +11,7 @@ public:
 	void ClampToScreen();
 	void Draw(Graphics& gfx) const;
 	void Update(const Keyboard& kbd,float dt);
+	void MouseMove(const Mouse& mouse, float dt);
 	Vec2 GetPosition()const;
 	float GetWidth() const;
 	float GetHeight()const;
@@ -21,8 +23,8 @@ public:
 private:
 
 	float speed = 5.0f*60.0f;
-
-	Vec2 position = Vec2(0.0f, 0.0f);
+	Vec2 moveVector;
+	Vec2 position = Vec2(200.0f, 200.0f);
 	//Color color;
 
 	static constexpr float width = 20.0f;

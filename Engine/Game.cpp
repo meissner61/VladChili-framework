@@ -59,7 +59,10 @@ void Game::UpdateModel()
 
 
 	//Clamp to screen needs to be called after Update
-	player.Update(wnd.kbd,dt);
+	//player.Update(wnd.kbd,dt);
+	//player.ClampToScreen();
+
+	player.MouseMove(wnd.mouse, dt);
 	player.ClampToScreen();
 
 	for (int i = 0; i < nEnemy; i++)
