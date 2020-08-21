@@ -48,6 +48,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+
 	FrameTimer ft;
 	std::mt19937 rng;
 	std::random_device rd;
